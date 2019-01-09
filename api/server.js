@@ -19,7 +19,6 @@ server.use(express.json());
 // Custom Middleware
 function uppercaseUsername(req, res, next) {
   let { name } = req.body;
-  console.log("NAME", name);
 
   if (!name) {
     res.status(400).json({ message: "Please provide a UserName, thank you" });
