@@ -4,6 +4,7 @@ const userDb = require("../data/helpers/userDb");
 
 const router = express.Router();
 
+// Single User
 router.get("/:userId", (req, res) => {
   const { userId } = req.params;
   userDb
@@ -13,6 +14,30 @@ router.get("/:userId", (req, res) => {
         res.status(200).json(user);
       } else {
         res.status(404).json({ message: "a user with that ID does not exist" });
+      }
+    })
+    .catch(err =>
+      res
+        .status(500)
+        .json({ error: "the user information could not be retrieved" })
+    );
+});
+
+// Single User Posts
+router.get("/:userId/posts", (req, res) => {
+  const { userId } = req.params;
+  userDb
+    .getUserPosts(userId)
+    .then(user => {
+      if (user.length) {
+        res.status(200).json(user);
+      } else {
+        res
+          .status(404)
+          .json({
+            message:
+              "a user with that ID does not exist or has no posts associated with them yet"
+          });
       }
     })
     .catch(err =>
