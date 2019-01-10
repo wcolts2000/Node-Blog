@@ -18,13 +18,10 @@ export default class PostsList extends Component {
 
   render() {
     const { posts } = this.state;
-    console.log(posts);
     if (this.state.posts.length) {
       return (
         <div>
           {posts.map(post => {
-            console.log("POST", post);
-
             return <PostCard key={post.id} post={post} />;
           })}
         </div>
