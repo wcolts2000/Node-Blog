@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import axios from "axios";
+// import axios from "axios";
 import { withRouter } from "react-router-dom";
 
 const Div = styled.div`

@@ -7,6 +7,7 @@ const Div = styled.div`
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
   border: 3px solid #0f0f0f;
+  color: #0f0f0f;
 `;
 
 function PostCard({ post: { id, text, userId } }) {
